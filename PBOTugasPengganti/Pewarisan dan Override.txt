@@ -1,0 +1,89 @@
+package pbotugaspengganti;
+import java.util.Scanner;
+public class PBOTugasPengganti {
+
+static Scanner masuk = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Laki muani = new Laki();
+        Perempuan luh = new Perempuan();
+        String gender;
+        System.out.print("Masukkan Jenis Kelamin (l/p) : ");
+        gender = masuk.next();
+            switch(gender){
+                case "l" :
+                        System.out.println("");
+                        System.out.println("----------------");
+                        System.out.println("Ciri Laki - Laki");
+                        System.out.println("----------------");
+                        muani.FisikUniversal1();
+                        muani.FisikUniversal2();
+                        muani.Fisik();
+                        muani.Karakter();
+                        break;
+                case "p" :
+                        System.out.println("");
+                        System.out.println("--------------");
+                        System.out.println("Ciri Perempuan");
+                        System.out.println("--------------");
+                        luh.FisikUniversal1();
+                        luh.FisikUniversal2();
+                        luh.Fisik();
+                        luh.Karakter();
+                        break;
+                default :
+                        System.out.println("---------------------------");
+                        System.out.println("Kata Kunci Salah, Coba Lagi");
+                        System.out.println("---------------------------");
+            } 
+    }
+}
+=============================================================================
+package pbotugaspengganti;
+
+public class Manusia extends PBOTugasPengganti {
+    void FisikUniversal1 (){
+        System.out.println("Memiliki 5 Indera");
+    }
+    protected void FisikUniversal2 (){
+        System.out.println("Yakni Peraba, Penciuman, Pendengaran, Penglihatan,Pengcap");
+    }
+}
+=============================================================================
+package pbotugaspengganti;
+public class Laki extends Manusia {
+    void Karakter() {
+        System.out.println("Minat terhadap benda");
+        System.out.println("Pandangan lebih tajam dalam melihat objek jauh ");
+        System.out.println("Pendengaran lebih tajam dalam menemukan bunyi");
+    }
+    protected void Fisik() {
+        System.out.println("Postur tubuh yang tegak");
+        System.out.println("Memiliki suara yang lebih berat");
+    }
+    
+}
+=============================================================================
+package pbotugaspengganti;
+public class Perempuan extends Manusia {
+    void Karakter() {
+        System.out.println("Minat terhadap manusia");
+        System.out.println("Bisa melihat yang dekat dengan sudut luas ");
+        System.out.println("Pendengaran dapat mendengar macam - macam suara");
+    }
+    protected void Fisik() {
+        System.out.println("Postur tubuh yang lemah gemulai");
+        System.out.println("Memiliki suara yang lebih nyaring");
+    }
+    
+}
+
+
+Penjelasan :
+Program kali ini menerapkan teori Pewarisan dan metode Overriding dan tambahan menggunakan switch case sebagai media untuk memilih kata kunci (keyword).
+Saat pengguna meng-run / menjalankan program, maka program akan meminta memasukkan kata kunci l atau p, kata kunci tersebut tidak diperbolehkan menggunakan huruf kapital.
+Jika pengguna memasukkan kata kunci selain l atau p, maka program akan memberikan output "Kata Kunci Salah, Coba Lagi".
+Kelas anak "Laki" dan "Perempuan" terhubung ke kelas induk "Manusia" menggunakan "extends".
+Output hanya bisa terpanggil pada kelas utama atau main class dengan catatan bahwa seluruh induk dan anak kelas sudah "terpanggil" pada kelas utama.
+
+
